@@ -2,11 +2,14 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useAuth } from '../../../context/AuthContext';
 import { RecentActivity } from "../../../components/ui/RecentActicity";
 import { StatCard } from "../../../components/ui/StatCard";
-import { MOCK_ACTIVITIES, MOCK_STATS, MOCK_CHART_DATA } from "../../../types/data";
+import { useReports } from '../../../hooks/useReports';
+import { useAttendanceSessions } from '../../../hooks/useAttendanceSessions';
 import { QrCode } from "lucide-react";
 
 export default function AdminDashboardPage() {
   const { user } = useAuth();
+  const { stats } = useReports();
+  const { sessions, attendances } = useAttendanceSessions();
 
   return (
     <div className="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-slate-50">
@@ -26,7 +29,7 @@ export default function AdminDashboardPage() {
             })}
           </p>
         </div>
-        <button className="mt-4 md:mt-0 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-indigo-200 font-bold text-sm">
+        <button className="mt-6 md:mt-0 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-indigo-200 font-bold text-sm">
           <QrCode className="w-4 h-4" />
           Generate New QR
         </button>
@@ -34,15 +37,10 @@ export default function AdminDashboardPage() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {MOCK_STATS.map((stat) => (
-          <StatCard 
-            key={stat.title}
-            title={stat.title}
-            value={stat.value}
-            color={stat.color}
-            icon={stat.icon}
-          />
-        ))}
+        <StatCard title="Total Workers" value={String(stats.totalWorkers)} color="indigo" />
+        <StatCard title="Present Today" value={String(stats.activeWorkers)} color="emerald" />
+        <StatCard title="Late Arrivals" value={String(stats.retiredWorkers)} color="amber" />
+        <StatCard title="Absent" value={String(stats.inactiveWorkers)} color="rose" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -63,7 +61,7 @@ export default function AdminDashboardPage() {
             {/* Real Chart Implementation */}
             <div className="h-80 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={MOCK_CHART_DATA}>
+                <AreaChart data={[] /* TODO: replace with real chart data from reports or sessions */}>
                   <defs>
                     <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.1}/>
@@ -102,7 +100,7 @@ export default function AdminDashboardPage() {
         
         {/* Activity Feed */}
         <div className="lg:col-span-1">
-          <RecentActivity activities={MOCK_ACTIVITIES} />
+          <RecentActivity activities={[] /* TODO: feed recent activity from attendances */} />
         </div>
       </div>
     </div>

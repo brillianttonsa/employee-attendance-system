@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthContext"
 import { Loader2, AlertCircle, Clock } from "lucide-react"
 
 export default function LoginPage() {
-  const { login } = useAuth()
+  const { login, user } = useAuth()
   const navigate = useNavigate() // for redirect
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -19,17 +19,10 @@ export default function LoginPage() {
     try {
       await login(email, password)
 
-      // Redirect based on role
-      const userRole = localStorage.getItem("role") // optional, or get from context if you expose it
-      // Better: get from context
-      // const { user } = useAuth()
-      // const userRole = user?.role
-
-      if (userRole === "admin") {
-        navigate("/dashboard")
-      } else {
-        navigate("/employee")
-      }
+      // Redirect based on role from auth context (set during login)
+      const userRole = user?.role;
+      if (userRole === "admin") navigate("/dashboard");
+      else navigate("/employee");
     } catch (err: any) {
       setError(err?.message || "Login failed")
     } finally {
@@ -116,7 +109,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
-              Demo credentials: admin@company.com / admin123
+              Demo credentials: admin@example.com / password
             </div>
           </div>
         </div>

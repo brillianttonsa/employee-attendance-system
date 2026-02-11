@@ -16,7 +16,7 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import { useAuth } from "../../context/AuthContext"
-import axios from "axios"
+import api from "../../service/api"
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -36,7 +36,7 @@ export function DashboardSidebar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/api/auth/logout")
+      await api.post("/auth/logout")
       window.location.href = "/login"
     } catch (error) {
       console.error("Logout failed", error)
@@ -158,7 +158,7 @@ export function DashboardSidebar() {
 
       {/* --- SIDEBAR (Mobile Drawer & Desktop Fixed) --- */}
       <aside
-        className={`fixed inset-y-0 left-0 z-[70] w-72 transform transition-transform duration-300 ease-in-out 
+        className={`fixed inset-y-0 left-0 z-[70] w-64 transform transition-transform duration-300 ease-in-out 
           md:relative md:translate-x-0 shrink-0 h-full ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}

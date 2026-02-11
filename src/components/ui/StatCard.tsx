@@ -21,7 +21,7 @@ export const StatCard: React.FC<StatCardProps> = ({
       <div className="relative z-10">
         <div className="flex items-start justify-between mb-4">
           <div className={`p-3 rounded-2xl border shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${styles.icon}`}>
-            {React.cloneElement(icon as React.ReactElement)}
+            {icon && React.isValidElement(icon) ? React.cloneElement(icon as React.ReactElement) : null}
           </div>
           
           {/* Decorative Dot */}

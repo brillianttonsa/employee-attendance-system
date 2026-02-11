@@ -12,7 +12,7 @@ export interface ActivityItem {
 export interface StatCardProps {
   title: string;
   value: string | number;
-  icon: ReactNode;
+  icon?: ReactNode;
   description?: string;
   color?: 'indigo' | 'emerald' | 'rose' | 'amber';
 }
