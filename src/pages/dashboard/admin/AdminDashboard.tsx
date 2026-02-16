@@ -9,7 +9,6 @@ import { QrCode } from "lucide-react";
 export default function AdminDashboardPage() {
   const { user } = useAuth();
   const { stats } = useReports();
-  const { sessions, attendances } = useAttendanceSessions();
 
   return (
     <div className="max-w-7xl py-4 mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-slate-50">

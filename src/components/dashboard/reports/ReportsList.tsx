@@ -1,4 +1,4 @@
-import { BarChart3, Users, CheckCircle, AlertCircle, Archive, TrendingUp, Clock, Briefcase } from "lucide-react";
+import { BarChart3, Users, CheckCircle, AlertCircle, Archive, Clock, Briefcase } from "lucide-react";
 
 interface ReportsListProps {
   stats: {

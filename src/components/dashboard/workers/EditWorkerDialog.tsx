@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../service/api";
 import { X, Loader2 } from "lucide-react";
-import type { Worker, WorkerFormData, Department } from "../../../types/worker";
+import type { Worker, Department } from "../../../types/worker";
 
 interface EditProps {
   worker: Worker;

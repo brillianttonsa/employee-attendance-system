@@ -13,7 +13,6 @@ import DashboardLayout from "./components/dashboard/DashboardLayout"
 
 // dashboard pages
 import Employee from "./pages/dashboard/Employee"
-import Dashboard from "./pages/dashboard/Dashboard"
 import AdminDashboard from "./pages/dashboard/admin/AdminDashboard"
 import WorkersPage from "./pages/dashboard/admin/WorkersPage"
 import DepartmentsPage from "./pages/dashboard/admin/DepartmentsPage"

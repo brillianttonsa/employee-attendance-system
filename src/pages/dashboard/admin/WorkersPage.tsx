@@ -7,9 +7,9 @@ import { useWorkers } from "../../../hooks/useWorkers";
 
 export default function WorkersPage() {
   const {
-    workers, allFiltered, departments, isLoading, search, setSearch,
+    workers, allFiltered, departments, search, setSearch,
     statusFilter, setStatusFilter, departmentFilter, setDepartmentFilter,
-    deleteWorker, refresh, page, setPage, pageSize, setPageSize, totalCount
+    deleteWorker, refresh, page, setPage, pageSize, totalCount
   } = useWorkers();
 
   return (

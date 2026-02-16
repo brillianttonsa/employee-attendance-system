@@ -1,6 +1,6 @@
 import { Plus, Copy, CheckCircle, Clock } from "lucide-react";
 import { useState } from "react";
-import type { AttendanceSession } from "../../../hooks/useAttendanceSessions";
+import type { AttendanceSession } from "../../../types/attendance";
 
 interface SessionsListProps {
   sessions: AttendanceSession[];

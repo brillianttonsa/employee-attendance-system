@@ -3,6 +3,7 @@ export type User = {
   id: string
   email: string
   role: "admin" | "employee"
+  name?: string
 }
 
 export type AuthContextType = {
