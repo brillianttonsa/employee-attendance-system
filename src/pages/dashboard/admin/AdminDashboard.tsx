@@ -3,7 +3,6 @@ import { useAuth } from '../../../context/AuthContext';
 import { RecentActivity } from "../../../components/ui/RecentActicity";
 import { StatCard } from "../../../components/ui/StatCard";
 import { useReports } from '../../../hooks/useReports';
-import { useAttendanceSessions } from '../../../hooks/useAttendanceSessions';
 import { QrCode } from "lucide-react";
 
 export default function AdminDashboardPage() {

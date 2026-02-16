@@ -1,5 +1,5 @@
 import { Clock, AlertCircle, CheckCircle } from "lucide-react";
-import type { AttendanceRecord } from "../../../hooks/useAttendanceSessions";
+import type { AttendanceRecord } from "../../../types/attendance";
 
 interface AttendancesListProps {
   attendances: AttendanceRecord[];

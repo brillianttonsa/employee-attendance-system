@@ -4,6 +4,13 @@ import { useAuth } from "../../../context/AuthContext";
 import api from "../../../service/api";
 import type { AttendanceRecord } from "../../../types/attendance";
 
+interface EmployeeAttendance {
+  date: string;
+  scanTime: string;
+  isLate: boolean;
+  sessionId: number;
+}
+
 export default function EmployeeDashboard() {
   const { user } = useAuth();
   const [attendances, setAttendances] = useState<{
